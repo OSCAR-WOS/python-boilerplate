@@ -7,7 +7,7 @@ class Translations(dict):
         self._path = os.path.join(os.path.split(__file__)[0], path)
         self.load()
 
-    def __injest(self, path):
+    def __ingest(self, path):
         try:
             with open(path) as file:
                 return json.load(file)
@@ -24,7 +24,7 @@ class Translations(dict):
         """
 
         path = os.path.join(self._path, f'{lang}.json')
-        self = self.__injest(path)
+        self = self.__ingest(path)
 
     def t(self, phrase='', data={}):
         """
@@ -41,7 +41,7 @@ class Translations(dict):
 
             else:
                 path = os.path.join(self._path, 'en.json')
-                translation = self.__injest(path)[phrase]
+                translation = self.__ingest(path)[phrase]
 
             return translation.format_map(data)
 
