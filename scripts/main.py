@@ -7,7 +7,7 @@ from translations import _t
 def main():
     try:
         flag_lang = _flags.value(['--lang', '-l'])
-        _t.load(flag_lang) if flag_lang else _t.load(flag_lang)
+        _t.load(flag_lang) if flag_lang else _t.load()
         _tmp.dir()
 
     except BaseException as ex:
